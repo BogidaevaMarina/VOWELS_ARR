@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>VOWELS_ARR</title>
+    </head>
+    <body>
+        <script>
+
+function vowelsForEach(str) {
+    str = str.toLowerCase();
+    const arr = [...str];
+    let cnt = 0;
+    const vowels = "аеёиоуыэюя";
+    function f(c) {
+        if (vowels.includes(c)) {
+            cnt++;
+        }
+    }
+    arr.forEach(f);
+    return cnt;
+}
+
+
+function vowelsFilter(str) {
+    str = str.toLowerCase();
+    const arr = [...str];
+    const vowels = "аеёиоуыэюя";
+    const arr2 = arr.filter(c => vowels.includes(c));
+    return arr2.length;
+}
+
+
+function vowelsReduce(str) {
+    str = str.toLowerCase();
+    const arr = [...str];
+    const vowels = "аеёиоуыэюя";
+    const res = arr.reduce((acc, c) => {
+        if (vowels.includes(c)) {
+            acc++;
+        }
+        return acc;
+    }, 0);
+    return res;
+}
+
+
+const userInput = prompt("Введите строку:");
+
+const resultForEach = vowelsForEach(userInput);
+const resultFilter = vowelsFilter(userInput);
+const resultReduce = vowelsReduce(userInput);
+alert(`Результат с использованием forEach: ${resultForEach}\nРезультат с использованием filter: ${resultFilter}\nРезультат с использованием reduce: ${resultReduce}`);
+
+  
+  </script>
+    </body>
+</html>
